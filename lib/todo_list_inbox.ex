@@ -31,4 +31,23 @@ defmodule TodoList.Inbox do
   def add_item(list, description) do
     list ++ [%{description: description}]
   end
+
+  @doc """
+    Removes an item from the `list` with the description 
+    which is provided by `description` attribute.
+
+  ## Examples
+
+      
+      iex> todo_list = TodoList.Inbox.add_item([], "First item")
+      iex> [first_item | _] = todo_list
+      iex> first_item[:description]
+      iex> todo_list = TodoList.Inbox.remove_item([], "First item")
+      iex> todo_list
+      []
+  """
+
+  def remove_item(list, description) do
+    list -- [%{description: description}]
+  end
 end
